@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-xqcbc434q3rp=iq92bi0#%r10a-m@m6q8+cd$8fkcr09vf-%*f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['book-ai-summary.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
