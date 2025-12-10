@@ -28,18 +28,25 @@ DEBUG = True
 ALLOWED_HOSTS = ['book-ai-summary.onrender.com', 'localhost', '127.0.0.1']
 
 
-# Application definition
+CUSTOM_APPS = [
+    'blog',
+    'books'
+]
 
-INSTALLED_APPS = [
+THIRD_PARTY_APPS = [
+    'rest_framework'
+]
+
+DJANGO_APPS  = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'books',
 ]
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -77,8 +84,12 @@ WSGI_APPLICATION = 'library.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'my_database',
+        "USER":'my_user',
+        "PASSWORD":'my_password',
+        "HOST":'db',
+        "PORT":'5432'
     }
 }
 
