@@ -8,8 +8,8 @@ services:
     build:
       context: .
       dockerfile: dockerfile
-    image: docker-image
-    container_name: docker-container
+    image: library-app-image
+    container_name: library-app-container
     ports:
       - "8000:8000"
     volumes:
