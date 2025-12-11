@@ -50,8 +50,8 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'library.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'my_database',
-        "USER":'my_user',
-        "PASSWORD":'my_password',
-        "HOST":'db',
+        'NAME': 'productiondatabase_o3rk',
+        "USER":'productiondatabase_o3rk_user',
+        "PASSWORD":'0eYjiY6aOuKKWtnvY0kYv5NMfHblYOoJ',
+        "HOST":'dpg-d4t0oere5dus738t2cg0-a.oregon-postgres.render.com',
         "PORT":'5432'
     }
 }
@@ -127,11 +127,19 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
+# STATIC_URL = '/static/'  this one is just written by me the base one is the following
 
 STATIC_URL = 'static/'
 
-STATIC_URL = '/static/'
+STATICFILES_DIR = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+STORAGES = {
+    # ...
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
